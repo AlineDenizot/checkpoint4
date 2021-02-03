@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="blog-container">
+        <h1> Mes derniers articles </h1>
+
+            <h2> Back-end</h2>
+        Mes 3 derniers articles sur le sujet :
+
+        {% set n = 0 %}
+        {% for article in articles %}
+            {% if n < 3 %}
+                {% if article.section == "Back-end" %}
+
+                <h3>{{ article.title }}</h3>
+                    {% set n = n+1 %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        <h2>Front-end</h2>
+        Mes 3 derniers articles sur le sujet :
+
+        {% set n = 0 %}
+        {% for article in articles %}
+            {% if n < 3 %}
+                {% if article.section == "Front-end"%}
+                <h3>{{ article.title }}</h3>
+                    {% set n = n+1 %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+
+        <h2>UX-design</h2>
+        Mes 3 derniers articles sur le sujet :
+
+        {% set n = 0 %}
+        {% for article in articles %}
+            {% if n < 3 %}
+                {% if article.section == "UX design"%}
+                <h3>{{ article.title }}</h3>
+                    {% set n = n+1 %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}

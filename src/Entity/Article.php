@@ -37,6 +37,11 @@ class Article
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $section;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Article
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getSection(): ?string
+    {
+        return $this->section;
+    }
+
+    public function setSection(string $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }
