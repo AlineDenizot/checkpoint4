@@ -8,14 +8,8 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
 
-class ArticleFixtures extends Fixture implements DependentFixtureInterface
+class ArticleFixtures extends Fixture
 {
-    const SECTION = [
-        'Back-end',
-        'Front-end',
-        'UX design',
-    ];
-
     /**
      * @param ObjectManager $manager
      */
@@ -28,7 +22,6 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
             $post->setDescription($faker->text($maxNbChars = rand(100, 200)));
             $post->setDate($faker->dateTimeBetween($startDate = '-3 years', $endDate = 'now', $timezone = null));
             $post->setPicture("https://via.placeholder.com/150");
-            $post->setSection(self::SECTION . $i % 3);
             $this->addReference('article_' . $i, $post);
 
             $manager->persist($post);
