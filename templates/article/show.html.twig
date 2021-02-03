@@ -6,39 +6,37 @@
 
     <div class="posts-users">
 
-        <div class="card-post">
-            <h1> {{ article.title }}</h1>
-            <p>Ecris le {{ article.date ? article.date|date('d-m-Y') }}</p>
-            <img src="{{ article.picture }}" alt="Aperçu de l'article">
-            <p> {{ article.description }}</p>
+        <h1> {{ article.title }}</h1>
+        <p>Ecris le {{ article.date ? article.date|date('d-m-Y') }}</p>
+        <img src="{{ article.picture }}" alt="Aperçu de l'article">
+        <p> {{ article.description }}</p>
+
+        <div class="comment-part">
+            <h4><span>Commentaires</span></h4>
+            <div class="comment-post">
+                {% if article.comments is empty %}
+                <p>Il n'y a actuellement pas de commentaire pour cet article</p>
+                {% else %}
+                    {% for comment in article.comments %}
+                        <p> {{ comment.description }} <br>
+                            <strong>
+                                De {{ comment.author.firstname }} {{ comment.author.lastname }}. Déposé le {{ comment.date | date("d/m/Y") }}.
+                            </strong>
+                        </p>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        {% if is_granted("ROLE_CONTRIBUTOR") %}
+
+            <a href="{{ path('comment_new', {"articleId":article.id }) }}">
+                <button type="button" class="button">
+                    Nouveau commentaire
+                </button>
+            </a>
+
+        {% endif %}
         </div>
-
-{#        <div class="comment-part">#}
-{#            <h4><span>Commentaires</span></h4>#}
-{#            <div class="comment-post">#}
-{#                {% for comment in article.comments %}#}
-{#                    {% if comment is empty %}#}
-{#                        <p>Il n'y a actuellement pas de commentaire pour cet article</p>#}
-{#                    {% else %}#}
-{#                        <p> {{ comment.description }} <br>#}
-{#                            <strong>#}
-{#                                De {{ comment.author.firstname }} {{ comment.author.lastname }}. Déposé le {{ comment.date | date("d/m/Y") }}.#}
-{#                            </strong>#}
-{#                        </p>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
-{#            </div>#}
-
-{#        {% if is_granted("ROLE_CONTRIBUTOR") %}#}
-
-{#            <a href="{{ path('newComment', {"postId":post.id }) }}">#}
-{#                <button type="button" class="button">#}
-{#                    Nouveau commentaire#}
-{#                </button>#}
-{#            </a>#}
-
-{#        {% endif %}#}
-{#        </div>#}
 
     </div>
 

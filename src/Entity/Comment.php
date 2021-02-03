@@ -14,40 +14,40 @@ class Comment
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @var integer
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
-
-    /**
      * @ORM\Column(type="text")
+     * @var string
      */
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Article::class)
+     * @ORM\Column(type="datetime")
      * @ORM\JoinColumn(nullable=false)
+     * @var \DateTimeInterface|null
+     */
+    private $date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comments", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     * @var Article|null
      */
     private $article;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     * @var User|null
+     */
+    private $author;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
     }
 
     public function getDescription(): ?string
@@ -62,6 +62,18 @@ class Comment
         return $this;
     }
 
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
     public function getArticle(): ?Article
     {
         return $this->article;
@@ -70,6 +82,18 @@ class Comment
     public function setArticle(?Article $article): self
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

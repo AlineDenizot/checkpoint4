@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\Comment;
-use App\Form\Comment1Type;
+use App\Entity\User;
+use App\Form\CommentType;
 use App\Repository\CommentRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,37 +29,39 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="comment_new", methods={"GET","POST"})
+     * @Route("/new/{articleId}", name="comment_new", methods={"GET","POST"})
+     * @ParamConverter("article", class="App\Entity\Article", options={"mapping": {"articleId": "id"}})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Article $article): Response
     {
         $comment = new Comment();
-        $form = $this->createForm(Comment1Type::class, $comment);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            /** @var User $user */
+            $user = $this->getUser();
+
+            $date = new \DateTime('now');
+            $comment->setDate($date);
+            $comment->setAuthor($user);
+            $comment->setArticle($article);
+
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('comment_index');
+            return $this->redirectToRoute('article_show', ['id' => $article->getId()]);
         }
 
         return $this->render('comment/new.html.twig', [
             'comment' => $comment,
+            'article' => $article,
             'form' => $form->createView(),
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="comment_show", methods={"GET"})
-     */
-    public function show(Comment $comment): Response
-    {
-        return $this->render('comment/show.html.twig', [
-            'comment' => $comment,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"})
