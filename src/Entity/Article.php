@@ -35,11 +35,6 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $section;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $picture;
 
     public function getId(): ?int
@@ -79,18 +74,6 @@ class Article
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getSection(): ?string
-    {
-        return $this->section;
-    }
-
-    public function setSection(string $section): self
-    {
-        $this->section = $section;
 
         return $this;
     }
