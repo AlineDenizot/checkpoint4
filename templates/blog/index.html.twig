@@ -4,6 +4,13 @@
 
     <div class="blog-container">
 
+        {% if app.user %}
+            {{ app.user.email }}
+            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('app_login') }}"> Se connecter</a>
+        {% endif %}
+
         <h1> Mon espace blog </h1>
 
         <div class="article-container">
@@ -18,12 +25,16 @@
                                 <h3>{{ article.title }}</h3>
                                 <img src="{{ article.picture }}" alt="apercu de l'article"/>
                                 <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
-                                <div class="button">En savoir plus</div>
+                                    <a href="{{ path('article_show', {"id":article.id }) }}">
+                                        <div class="button">En savoir plus</div>
+                                    </a>
                                 {% set n = n+1 %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-                <div class="more-articles"> Voir tous les autres articles Back-end</div>
+                <a href="{{ path('blog_section', {"section":"Back-end" }) }}">
+                    <div class="more-articles"> Voir tous les autres articles Back-end</div>
+                </a>
             </div>
 
             <div class="blog-section">
@@ -36,12 +47,16 @@
                                 <h3>{{ article.title }}</h3>
                                 <img src="{{ article.picture }}" alt="apercu de l'article"/>
                                 <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
-                                <div class="button">En savoir plus</div>
+                                <a href="{{ path('article_show', {"id":article.id }) }}">
+                                    <div class="button">En savoir plus</div>
+                                </a>
                                 {% set n = n+1 %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-                <div class="more-articles"> Voir tous les autres articles Front-end</div>
+                <a href="{{ path('blog_section', {"section":"Front-end" }) }}">
+                    <div class="more-articles"> Voir tous les autres articles Front-end</div>
+                </a>
             </div>
 
             <div class="blog-section">
@@ -54,12 +69,16 @@
                                 <h3>{{ article.title }}</h3>
                                 <img src="{{ article.picture }}" alt="apercu de l'article"/>
                                 <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
-                                <div class="button">En savoir plus</div>
+                                <a href="{{ path('article_show', {"id":article.id }) }}">
+                                    <div class="button">En savoir plus</div>
+                                </a>
                                 {% set n = n+1 %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-                <div class="more-articles"> Voir tous les autres articles d'UX design</div>
+                <a href="{{ path('blog_section', {"section":"UX design" }) }}">
+                    <div class="more-articles"> Voir tous les autres articles d'UX design</div>
+                </a>
 
             </div>
 
