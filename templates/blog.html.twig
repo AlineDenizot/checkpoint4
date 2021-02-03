@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="blog-container">
+
+        <h1> Mon espace blog </h1>
+
+        <div class="article-container">
+            <div class="blog-section">
+                <h2>- Back-end -</h2>
+                <p>Mes 3 derniers articles sur le sujet :</p>
+                    {% set n = 0 %}
+                    {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+                        {% if n < 3 %}
+                            {% if article.section == "Back-end" %}
+
+                                <h3>{{ article.title }}</h3>
+                                <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                                <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                                <div class="button">En savoir plus</div>
+                                {% set n = n+1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                <div class="more-articles"> Voir tous les autre articles</div>
+            </div>
+
+            <div class="blog-section">
+                <h2>- Front-end -</h2>
+                <p>Mes 3 derniers articles sur le sujet :</p>
+                    {% set n = 0 %}
+                    {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+                        {% if n < 3 %}
+                            {% if article.section == "Front-end"%}
+                                <h3>{{ article.title }}</h3>
+                                <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                                <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                                <div class="button">En savoir plus</div>
+                                {% set n = n+1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                <div class="more-articles"> Voir tous les autre articles</div>
+            </div>
+
+            <div class="blog-section">
+                <h2>- UX design - </h2>
+                <p>Mes 3 derniers articles sur le sujet :</p>
+                    {% set n = 0 %}
+                    {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+                        {% if n < 3 %}
+                            {% if article.section == "UX design"%}
+                                <h3>{{ article.title }}</h3>
+                                <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                                <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                                <div class="button">En savoir plus</div>
+                                {% set n = n+1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                <div class="more-articles"> Voir tous les autre articles</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
