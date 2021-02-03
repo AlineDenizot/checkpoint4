@@ -6,12 +6,17 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    padding: 0;
+    margin: 0;
+}
+
 //Navbar
 
 .title-section {
     font-family: 'Inconsolata', monospace;
     text-align: center;
-    height: 200px;
+    height: 300px;
     .about-me {
         min-height: 40px;
     }
@@ -23,12 +28,13 @@ p {
                 list-style-type:none;
                 li {
                     display: inline-block;
-                    margin-left: 50px;
                     text-align: center;
                 }
             }
             a {
                 color: black;
+                text-decoration: none;
+                padding-right: 2em;
                 &:hover {
                     opacity: 0.8;
                     font-weight: bold;
@@ -37,28 +43,138 @@ p {
     }
 }
 
+@media screen and (max-width: 992px) {
+
+    #nav-wrapper {
+        font-family: Inconsolata, monospace;
+        label {
+            font-size: 1em;
+            float:left
+        }
+    }
+    .menu-checkbox:checked ~ .menu {
+        max-height: none;
+        margin: 1em 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-checkbox {
+        opacity: 0;
+        position: absolute;
+        top: -1000px;
+    }
+
+    .menu-toggle {
+        padding: .5em 1em;
+    }
+
+    .nav-wrapper {
+        align-items: start;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu {
+        flex-basis: 100%;
+        max-height: 0;
+        overflow: hidden;
+        margin: 0;
+        transition: margin .5s ease-in-out, max-height .5s ease-in-out, opacity .3s .1s ease-in-out;
+        visibility: hidden;
+        padding: 0 2em;
+        opacity: 0;
+    }
+    .menu li {
+        width: 20%;
+        font-size: 0.8em;
+        margin-top: 0.7em;
+        display: table;
+
+    }
+
+    .menu li a {
+        display: table;
+        padding: 0.5em 1em;
+
+        &:hover, &:active {
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 65em) {
+    .menu {
+        margin: 0;
+        max-height: 1000px;
+        opacity: 1;
+        padding: 0;
+        visibility: visible;
+    }
+
+    .menu-toggle,
+    .menu-checkbox {
+        display: none;
+    }
+}
+
 //Index
 .about-section {
     background-color : #e8e0cc;
     transform: skewY(-5deg);
-    height: 800px;
+    height: 600px;
+    margin: 0;
+    align-items: center;
     .contain-about-section {
-        min-width: 50em;
-        margin: 0 auto;
+        width: 700px;
+        margin: 5em 5em 0 0;
+        float:right;
         transform: skewY(5deg);
         text-align: center;
+        line-height: 1.7em;
     }
+}
+
+.formation-section {
+    margin: 8em;
+    width: 700px;
+    h1 {
+        margin-left: 5em;
+    }
+}
+
+.skills-section {
+    width: 400px;
+    height: 400px;
+    border-radius: 200px;
+    background-color: #e8e0cc;
+    float: right;
+    margin-right: 10em;
 }
 
 
 //Footer
 footer {
     text-align: end;
+    font-family: "Inconsolata", monospace;
     ul {
         list-style-type: none;
 
         li {
             display: inline-block;
         }
+        a {
+            color: black;
+            text-decoration: none;
+            padding-right: 2em;
+            &:hover {
+                opacity: 0.8;
+                font-weight: bold;
+            }}
     }
 }

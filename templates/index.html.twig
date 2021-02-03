@@ -2,9 +2,40 @@
 
 {% block body %}
     <div class="about-section">
+        <div class="contain-img-about">
+            <img src="{{ asset('build/octopus.jpg')}}"/>
+        </div>
         <div class="contain-about-section">
             <h1>A propos</h1>
-            <!--Télécharger mon CV-->
+            <p>Après plusieurs années d'expérience dans le secteur de la Petite Enfance en Collectivité Territoriale, j'ai souhaité donné un nouvel élan à ma carrière professionnelle en me dirigeant vers le développement Web.<br>
+            Dans un premier temps, je me suis formée de façon intensive en rejoignant la Wild Code School de Strasbourg afin de développer mes compétences en Back end. <br>
+            J'ai maintenant décidé d'intégrer une formation en alternance afin de poursuivre mon apprentissage et valider le titre de Conceptrice d'Application Web <br>
+            </p>
         </div>
+    </div>
+
+    <div class="formation-section">
+        <h1>Ma formation</h1>
+        <ul>
+            <li><p>Wild Code School de Strasbourg - 5 mois (2020-2021)<br>
+                Formation développeuse web Back-end
+                </p></li>
+            <li><p>ESPE de Poitiers (2013-2014)<br>
+                    Master MEEF Conseil en Education
+                </p></li>
+            <li><p>Université de Lorraine de Nancy (2009-2012)<br>
+                    Licence Communication d'Entreprise
+                </p></li>
+        </ul>
+    </div>
+
+    <div class="skills-section">
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Bootstrap</li>
+            <li>PHP</li>
+            <li>Symfony</li>
+        </ul>
     </div>
 {% endblock %}
