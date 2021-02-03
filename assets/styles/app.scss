@@ -1,3 +1,64 @@
-body {
-    background-color: lightgray;
+h1 {
+    font-family: "Inconsolata", monospace;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+//Navbar
+
+.title-section {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    height: 200px;
+    .about-me {
+        min-height: 40px;
+    }
+    .menu {
+        nav {
+            text-align: center;
+            font-family: 'Inconsolata', monospace;
+            ul {
+                list-style-type:none;
+                li {
+                    display: inline-block;
+                    margin-left: 50px;
+                    text-align: center;
+                }
+            }
+            a {
+                color: black;
+                &:hover {
+                    opacity: 0.8;
+                    font-weight: bold;
+                }}
+        }
+    }
+}
+
+//Index
+.about-section {
+    background-color : #e8e0cc;
+    transform: skewY(-5deg);
+    height: 800px;
+    .contain-about-section {
+        min-width: 50em;
+        margin: 0 auto;
+        transform: skewY(5deg);
+        text-align: center;
+    }
+}
+
+
+//Footer
+footer {
+    text-align: end;
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+        }
+    }
 }
