@@ -11,6 +11,24 @@ body {
     margin: 0;
 }
 
+.button {
+    transition-duration: 0.4s;
+    font-family: "Inconsolata", monospace;
+    border-radius: 8px;
+    width:150px;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1em;
+    align-content: center;
+    background-color: #e8e0cc;
+    &:hover {
+        background-color: #AAAAAA ;
+        font-family: "Inconsolata", monospace;
+    }
+}
+
 //Navbar
 
 .title-section {
@@ -158,6 +176,43 @@ body {
     margin-bottom: 5em;
 }
 
+//Blog
+.blog-container {
+    padding-left: 5em;
+    h1 {
+        text-align: center;
+    }
+    .article-container {
+        .blog-section {
+            h2 {
+                text-transform: uppercase;
+                font-size: 2em;
+                margin-top: 2em;
+                text-align: center;
+            }
+            h3 {
+                font-family: 'Montserrat', sans-serif;
+                margin-top: 1.2em;
+            }
+            img {
+                width: 90%;
+                height: 400px;
+                object-fit: cover;
+                margin: auto;
+            }
+        }
+    }
+    .more-articles {
+        font-style: italic;
+        font-size: 1.5em;
+        margin-top: 2em;
+        font-family: "Inconsolata", monospace;
+    }
+    .button {
+        margin: auto;
+    }
+
+}
 
 //Footer
 footer {
