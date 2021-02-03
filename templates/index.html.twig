@@ -3,7 +3,7 @@
 {% block body %}
     <div class="about-section">
         <div class="contain-img-about">
-            <img src="{{ asset('build/octopus.jpg')}}"/>
+            <img src="{{ asset('build/images/octopus.jpg')}}"/>
         </div>
         <div class="contain-about-section">
             <h1>A propos</h1>
@@ -15,27 +15,35 @@
     </div>
 
     <div class="formation-section">
-        <h1>Ma formation</h1>
-        <ul>
-            <li><p>Wild Code School de Strasbourg - 5 mois (2020-2021)<br>
-                Formation développeuse web Back-end
-                </p></li>
-            <li><p>ESPE de Poitiers (2013-2014)<br>
-                    Master MEEF Conseil en Education
-                </p></li>
-            <li><p>Université de Lorraine de Nancy (2009-2012)<br>
-                    Licence Communication d'Entreprise
-                </p></li>
-        </ul>
+        <div class="text-formation">
+            <h1>Ma formation</h1>
+            <ul>
+                <li><p>Wild Code School de Strasbourg - 5 mois (2020-2021)<br>
+                        Formation développeuse web Back-end
+                    </p></li>
+                <li><p>ESPE de Poitiers (2013-2014)<br>
+                        Master MEEF Conseil en Education
+                    </p></li>
+                <li><p>Université de Lorraine de Nancy (2009-2012)<br>
+                        Licence Communication d'Entreprise
+                    </p></li>
+            </ul>
+        </div>
+        <div class="img-formation">
+            <img src="{{ asset('build/images/tools.jpg')}}"/>
+        </div>
+
     </div>
 
     <div class="skills-section">
-        <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>Bootstrap</li>
-            <li>PHP</li>
-            <li>Symfony</li>
-        </ul>
+        <div class="background-skills">
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Bootstrap</li>
+                <li>PHP</li>
+                <li>Symfony</li>
+            </ul>
+        </div>
     </div>
 {% endblock %}
