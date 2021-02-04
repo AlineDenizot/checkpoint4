@@ -401,6 +401,21 @@ footer {
     }
 }
 
+//Dashboard
+.dashboard {
+    margin: 5em;
+    text-align: center;
+    ul {
+        list-style: none;
+    }
+    a button {
+        margin: auto;
+    }
+    h1:nth-child(2) {
+      margin-top:5em;
+    }
+}
+
 
 //Responsive
 
