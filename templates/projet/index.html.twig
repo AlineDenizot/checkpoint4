@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes projets{% endblock %}
+
+{% block body %}
+
+<div class="portfolio">
+
+    <div class="projets-container">
+        <div class="text-projets">
+            <h1>Mes projets</h1>
+            <p>Voici quelques uns de mes projets personnels ou réalisés en équipe</p>
+        </div>
+
+        <div class="img-projets">
+            <div class="left-part">
+                {% for project in projects | slice(0 , 2)%}
+                <a href="{{ project.github }}">
+                    <img src= "{{ asset('build/images/' ~ project.url ) }}"/>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="right-part">
+                {% for project in projects | slice(2 , 6)%}
+                    <a href="{{ project.github }}">
+                        <img src= "{{ asset('build/images/' ~ project.url ) }}"/>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+{% endblock %}

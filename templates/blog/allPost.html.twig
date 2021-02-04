@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="blog-container">
+
+        {% if app.user %}
+            {{ app.user.email }}
+            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('app_login') }}"> Se connecter</a>
+        {% endif %}
+
+        <h1> Mon espace blog </h1>
+
+        <div class="article-container">
+            <div class="blog-section">
+                <h2>- {{ section}} -</h2>
+                <p>Mon dernier article de cette catégorie :</p>
+                {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+
+                    <h3>{{ article.title }}</h3>
+                    <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                    <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                    <a href="{{ path('article_show', {"slug":article.slug }) }}">
+                        <div class="button">En savoir plus</div>
+                    </a>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
