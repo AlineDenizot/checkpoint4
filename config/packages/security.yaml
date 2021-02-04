@@ -1,7 +1,7 @@
 security:
     role_hierarchy:
         ROLE_CONTRIBUTOR: ROLE_USER
-        ROLE_ADMIN: ROLE_CONTRIBUTOR
+        ROLE_ADMIN: ROLE_ADMIN
     encoders:
         App\Entity\User:
             algorithm: auto

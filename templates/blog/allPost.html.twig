@@ -22,7 +22,7 @@
                     <h3>{{ article.title }}</h3>
                     <img src="{{ article.picture }}" alt="apercu de l'article"/>
                     <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
-                    <a href="{{ path('article_show', {"id":article.id }) }}">
+                    <a href="{{ path('article_show', {"slug":article.slug }) }}">
                         <div class="button">En savoir plus</div>
                     </a>
                 {% endfor %}

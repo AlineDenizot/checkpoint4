@@ -29,7 +29,7 @@
 
         {% if is_granted("ROLE_CONTRIBUTOR") %}
 
-            <a href="{{ path('comment_new', {"articleId":article.id }) }}">
+            <a href="{{ path('comment_new', {"articleSlug":article.slug }) }}">
                 <button type="button" class="button">
                     Nouveau commentaire
                 </button>
