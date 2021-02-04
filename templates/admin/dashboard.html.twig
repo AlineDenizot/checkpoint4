@@ -6,7 +6,10 @@
     <div class="dashboard">
         <h1> Tous mes articles</h1>
 
-        <h1> Tous mes commentaires</h1>
+        {% for article in articles %}
+        <li> {{ article.title}} - </li>
+        {% endfor %}
+
     </div>
 
 {% endblock %}
