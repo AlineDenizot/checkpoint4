@@ -50,6 +50,13 @@ class Article
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
+     * @var string
+     */
+    private $slug;
+
 
     /**
      * @return Collection|Comment[]
@@ -142,6 +149,18 @@ class Article
     public function setSection(string $section): self
     {
         $this->section = $section;
+
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
