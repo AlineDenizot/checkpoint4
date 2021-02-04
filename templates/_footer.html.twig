@@ -1,4 +1,14 @@
+{% if is_granted("ROLE_ADMIN") %}
+    <a href="{{ path('dashboard_index')}}">Mon dashboard</a>
+{%endif%}
+
+{% if app.user %}
+    {{ app.user.email }}
+    <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+{% else %}
+    <a href="{{ path('app_login') }}"> Se connecter</a>
+{% endif %}
 <ul>
     <a href="#"><li>Linkedin</li></a>
-    <a href="#"><li>Instagram</li></a>
+    <a href="#"><li>Github</li></a>
 </ul>

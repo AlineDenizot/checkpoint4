@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="blog-container">
+
+        <h1> Mon espace blog </h1>
+
+        <div class="article-container">
+            <div class="blog-section">
+                <h2>- Back-end -</h2>
+                <p>Mon dernier article de cette catégorie :</p>
+                    {% set n = 0 %}
+                    {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+                        {% if n < 1 %}
+                            {% if article.section == "Back-end" %}
+
+                                <h3>{{ article.title }}</h3>
+                                <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                                <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                                    <a href="{{ path('article_show', {"slug":article.slug }) }}">
+                                        <div class="button">En savoir plus</div>
+                                    </a>
+                                {% set n = n+1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                <a href="{{ path('blog_section', {"section":"Back-end" }) }}">
+                    <div class="more-articles"> Voir tous les autres articles Back-end</div>
+                </a>
+            </div>
+
+            <div class="blog-section">
+                <h2>- Front-end -</h2>
+                <p>Mon dernier article de cette catégorie :</p>
+                {% set n = 0 %}
+                    {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+                        {% if n < 1 %}
+                            {% if article.section == "Front-end"%}
+                                <h3>{{ article.title }}</h3>
+                                <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                                <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                                <a href="{{ path('article_show', {"slug":article.slug }) }}">
+                                    <div class="button">En savoir plus</div>
+                                </a>
+                                {% set n = n+1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                <a href="{{ path('blog_section', {"section":"Front-end" }) }}">
+                    <div class="more-articles"> Voir tous les autres articles Front-end</div>
+                </a>
+            </div>
+
+            <div class="blog-section">
+                <h2>- UX design - </h2>
+                <p>Mon dernier article de cette catégorie :</p>
+                    {% set n = 0 %}
+                    {% for article in articles | sort((a,b)=> b.date <=> a.date) %}
+                        {% if n < 1 %}
+                            {% if article.section == "UX design"%}
+                                <h3>{{ article.title }}</h3>
+                                <img src="{{ article.picture }}" alt="apercu de l'article"/>
+                                <p>Ecrit le {{ article.date | date("d/m/Y") }}</p>
+                                <a href="{{ path('article_show', {"slug":article.slug }) }}">
+                                    <div class="button">En savoir plus</div>
+                                </a>
+                                {% set n = n+1 %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                <a href="{{ path('blog_section', {"section":"UX design" }) }}">
+                    <div class="more-articles"> Voir tous les autres articles d'UX design</div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -2,9 +2,55 @@
 
 {% block body %}
     <div class="about-section">
+        <div class="contain-img-about">
+            <img src="{{ asset('build/images/octopus.jpg')}}"/>
+        </div>
         <div class="contain-about-section">
-            <h1>A propos</h1>
-            <!--Télécharger mon CV-->
+            <h1>- A propos -</h1>
+            <p>Après plusieurs années d'expérience dans le secteur de la Petite Enfance en Collectivité Territoriale, j'ai souhaité donné un nouvel élan à ma carrière professionnelle en me dirigeant vers le développement Web.<br>
+            Dans un premier temps, je me suis formée de façon intensive en rejoignant la Wild Code School de Strasbourg afin de développer mes compétences en Back end. <br>
+            J'ai maintenant décidé d'intégrer une formation en alternance afin de poursuivre mon apprentissage et valider le titre de Conceptrice d'Application Web <br>
+            </p>
         </div>
     </div>
+
+    <div class="formation-section">
+        <div class="text-formation">
+            <h1>- Ma formation -</h1>
+            <ul>
+                <li><p>Wild Code School de Strasbourg - 5 mois (2020-2021)<br>
+                        Formation développeuse web Back-end
+                    </p></li>
+                <li><p>ESPE de Poitiers (2013-2014)<br>
+                        Master MEEF Conseil en Education
+                    </p></li>
+                <li><p>Université de Lorraine de Nancy (2009-2012)<br>
+                        Licence Communication d'Entreprise
+                    </p></li>
+            </ul>
+        </div>
+        <div class="img-formation">
+            <img src="{{ asset('build/images/tools.jpg')}}"/>
+        </div>
+
+    </div>
+
+
+    <div class="skills-section">
+        <div class="img-skills">
+            <img src="{{ asset('build/images/bird.jpg')}}" alt="HTML 5"/>
+        </div>
+
+        <div class="logo-skills">
+            <ul>
+                <li><img src="{{ asset('build/images/icons8-html-5.png')}}" alt="HTML 5"/></li>
+                <li><img src="{{ asset('build/images/icons8-css3.png')}}" alt="CSS 3"/></li>
+                <li><img src="{{ asset('build/images/icons8-php.png')}}" alt="PHP"/></li>
+                <li><img src="{{ asset('build/images/icons8-symfony.png')}}" alt="Symfony"/></li>
+                <li><img src="{{ asset('build/images/icons8-mysql.png')}}" alt="mySql"/></li>
+                <li><img src="{{ asset('build/images/icons8-linux.png')}}" alt="Linux"/></li>
+            </ul>
+        </div>
+    </div>
+
 {% endblock %}

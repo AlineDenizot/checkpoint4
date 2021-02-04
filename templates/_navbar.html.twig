@@ -5,14 +5,31 @@
         </div>
     </div>
 
-    <div class="menu">
-        <nav>
-            <ul>
-                <a href=#><li>A propos</li></a>
-                <a href=#><li>Quelques mots</li></a>
-                <a href=#><li>Mes projets</li></a>
-                <a href=#><li>Me contacter</li></a>
-            </ul>
-        </nav>
+    <div id="nav-wrapper">
+
+        <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
+        <label for="menu-checkbox" class="menu-toggle">≡ Menu</label>
+
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ path('home')}}">A propos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('blog')}}">Quelques mots
+                        </a>
+                    <li>
+                        <a href="{{ path('projet')}}">Mes projets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('contact') }}">Me contacter
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Comment{% endblock %}
+
+{% block body %}
+    <div class="form">
+        <h1>Nouveau commentaire</h1>
+
+        {{ include('comment/_form.html.twig') }}
+    </div>
+
+{% endblock %}
