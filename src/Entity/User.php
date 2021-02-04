@@ -45,7 +45,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
@@ -138,7 +138,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_CONTRIBUTOR';
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }

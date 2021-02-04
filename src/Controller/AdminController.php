@@ -29,7 +29,7 @@ class AdminController extends AbstractController
 
         $articles = $articleRepository->findAll();
 
-        return $this->render('blog/index.html.twig', [
+        return $this->render('admin/dashboard.html.twig', [
             'articles' => $articles,
         ]);
     }
@@ -45,6 +45,10 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $slug = $slugify->slug($category->getTitle());
+            $article->setSlug($slug);
+
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -58,7 +62,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("article/{id}/edit", name="article_edit", methods={"GET","POST"})
+     * @Route("article/{slug}/edit", name="article_edit", methods={"GET","POST"})
      */
     public function editArticle(Request $request, Article $article): Response
     {
@@ -69,7 +73,8 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('dashboard');
-        }
+        }$slug = $slugify->slug($category->getName());
+            $category->setSlug($slug);
 
         return $this->render('article/edit.html.twig', [
             'article' => $article,
@@ -78,7 +83,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("article/{id}", name="article_delete", methods={"DELETE"})
+     * @Route("article/{slug}", name="article_delete", methods={"DELETE"})
      */
     public function deleteArticle(Request $request, Article $article): Response
     {

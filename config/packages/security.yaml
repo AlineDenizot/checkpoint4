@@ -1,7 +1,7 @@
 security:
     role_hierarchy:
         ROLE_CONTRIBUTOR: ROLE_USER
-        ROLE_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN: ROLE_CONTRIBUTOR
     encoders:
         App\Entity\User:
             algorithm: auto
@@ -38,5 +38,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/comment/new, roles: ROLE_CONTRIBUTOR }
-        - { path: ^/dashboard, roles: ROLE_ADMIN }
 

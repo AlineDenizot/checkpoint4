@@ -69,10 +69,13 @@ a {
     }
 }
 
+//menu burger
+
 @media screen and (max-width: 992px) {
 
     #nav-wrapper {
         font-family: Inconsolata, monospace;
+        text-align: left;
         label {
             font-size: 1em;
             float:left
@@ -104,6 +107,7 @@ a {
 
     .menu {
         flex-basis: 100%;
+        max-width: 400px;
         max-height: 0;
         overflow: hidden;
         margin: 0;
@@ -113,17 +117,18 @@ a {
         opacity: 0;
     }
     .menu li {
-        width: 20%;
-        font-size: 0.8em;
+        min-width: 30%;
+        font-size: 1em;
         margin-top: 0.7em;
         display: table;
-
     }
 
     .menu li a {
-        display: table;
+        display: inline-block;
+        min-width: 150px;
         padding: 0.5em 1em;
-
+        position: relative;
+        z-index:5;
         &:hover, &:active {
             &::after {
                 display: none;
@@ -212,27 +217,7 @@ a {
     }
 }
 
-.skills-section-row {
-    width: 100%;
-    height: 400px;
-    .background-skills {
-        position: absolute;
-        z-index: 0;
-        width: 400px;
-        height: 400px;
-        border-radius: 200px;
-        background-color: #e8e0cc;
-        right: 200px;
-        margin-right: 15em;
-        margin-bottom: 5em;
-    }
-    .text-skills {
-        float: right;
-        margin: 8em 20em 0 0;
-        position: relative;
-        z-index: 2;
-    }
-}
+
 
 //Blog
 .blog-container {
@@ -414,4 +399,38 @@ footer {
                 font-weight: bold;
             }}
     }
+}
+
+
+//Responsive
+
+@media screen and (max-width: 992px){
+    .title-section, .skills-section, .blog-container, .posts-users {
+        margin: 2em;
+        text-align: center;
+    }
+    img {
+        display: none;
+    }
+
+    .text-formation {
+        h1 {
+            margin: 0;
+        }
+    }
+    .skills-section .logo-skills {
+        width: 100%;
+        padding-left: 0;
+        margin: auto;
+        ul li img {
+            display: block;
+        }
+    }
+
+    .img-projets {
+        img {
+            display: block;
+        }
+    }
+
 }
